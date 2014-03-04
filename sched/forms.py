@@ -17,3 +17,17 @@ class LoginForm(Form):
     """
     username = TextField('Username', [required()])
     password = PasswordField('Password', [required()])
+
+
+if __name__ == '__main__':
+    from werkzeug.datastructures import ImmutableMultiDict as multidict
+
+    data = multidict([('title', 'Hello, form!')])
+    form = AppointmentForm()
+    print('Here is validation...')
+    print('Does it validate: {}'.format(form.validate()))
+    print('There is an error attached to the field')
+    print('form.start.errors: {}'.format(form.start.errors))
+    print(form.title.label)
+    print(form.title)
+
